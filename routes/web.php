@@ -18,6 +18,10 @@ Route::get('/contact', function () {
     return view('pages.contact');
 });
 
+Route::get('/subject', function () {
+    return view('pages.subject');
+});
+
 Route::get('/welcome', function () {
     return view('welcome');
 });
