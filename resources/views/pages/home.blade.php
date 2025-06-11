@@ -11,7 +11,7 @@
     <div class="flex justify-between items-center px-4 py-2 bg-white shadow">
         <div class="text-xl font-bold text-green-700">EduReach</div>
         <div class="space-x-2">
-            <a href="/signup" class="text-sm text-green-700 font-semibold">Sign Up</a>
+            <a href="/register" class="text-sm text-green-700 font-semibold">Sign Up</a>
             <a href="/login" class="text-sm text-white bg-green-600 px-3 py-1 rounded-full">Login</a>
         </div>
     </div>
