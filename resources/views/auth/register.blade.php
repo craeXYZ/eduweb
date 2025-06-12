@@ -1,4 +1,3 @@
-<!-- resources/views/auth/register.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +8,7 @@
 </head>
 <body class="bg-white min-h-screen flex items-center justify-center font-sans">
   <div class="w-full max-w-sm p-6">
-    <a href="{{ route('login') }}" class="text-orange-500 text-sm mb-4 inline-block">&larr; Back</a>
+    <a href="/login" class="text-orange-500 text-sm mb-4 inline-block">&larr; Back</a>
 
     <div class="flex flex-col items-center mb-8">
       <!-- Logo -->
@@ -23,36 +22,47 @@
 
     <h2 class="text-xl font-semibold text-blue-900 mb-6">Sign Up</h2>
 
-    <form method="POST" action="{{ url('/register') }}" class="space-y-4">
-      @csrf
+    <form action="/placement" method="POST">
+      <!-- Name -->
+      <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+      <input type="text" name="name" id="name" required
+             class="mt-1 mb-4 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm">
 
-      <div>
-        <label class="block text-sm text-blue-900">Full Name</label>
-        <input name="name" type="text" placeholder="Full Name" required class="w-full px-4 py-2 border border-blue-900 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
-      </div>
+      <!-- Phone -->
+      <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+      <input type="tel" name="phone" id="phone" required
+             class="mt-1 mb-4 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm">
 
-      <div>
-        <label class="block text-sm text-blue-900">Email</label>
-        <input name="email" type="email" placeholder="Email" required class="w-full px-4 py-2 border border-blue-900 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
-      </div>
+      <!-- Password -->
+      <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+      <input type="password" name="password" id="password" required
+             class="mt-1 mb-2 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm">
+      <button type="button" class="text-sm text-blue-500 mb-4" onclick="togglePasswordVisibility('password')">Show Password</button>
 
-      <div>
-        <label class="block text-sm text-blue-900">Password</label>
-        <input name="password" type="password" placeholder="Password" required class="w-full px-4 py-2 border border-blue-900 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
-      </div>
+      <!-- Confirm Password -->
+      <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+      <input type="password" name="password_confirmation" id="password_confirmation" required
+             class="mt-1 mb-2 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm">
+      <button type="button" class="text-sm text-blue-500 mb-4" onclick="togglePasswordVisibility('password_confirmation')">Show Password</button>
 
-      <div>
-        <label class="block text-sm text-blue-900">Confirm Password</label>
-        <input name="password_confirmation" type="password" placeholder="Confirm Password" required class="w-full px-4 py-2 border border-blue-900 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
-      </div>
+      <!-- Residence -->
+      <label for="residence" class="block text-sm font-medium text-gray-700 mt-4">Residence</label>
+      <input type="text" name="residence" id="residence" required
+             class="mt-1 mb-6 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm">
 
-      <button type="submit" class="w-full bg-green-500 text-white py-2 rounded-full font-semibold hover:bg-green-600">Sign Up</button>
+      <!-- Submit -->
+      <button type="submit"
+              class="w-full bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md shadow">
+        Sign Up
+      </button>
     </form>
-
-    <div class="mt-6 text-center text-sm text-blue-900">
-      Already have an account? <a href="{{ route('login') }}" class="font-bold">Sign In</a>
-    </div>
   </div>
+
+  <script>
+    function togglePasswordVisibility(id) {
+      const field = document.getElementById(id);
+      field.type = field.type === "password" ? "text" : "password";
+    }
+  </script>
 </body>
 </html>
-

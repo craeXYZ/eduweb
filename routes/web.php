@@ -59,6 +59,22 @@ Route::get('/quiz', function () {
     return view('quiz.intro');
 });
 
+Route::get('/quiz/start', function () {
+    return view('quiz.quiz');
+});
+
+Route::get('/quiz/result', function () {
+    return view('quiz.outro');
+});
+
+Route::get('/placement', function () {
+    return view('placements.placement');
+});
+
+Route::get('/placement/result', function () {
+    return view('placements.result');
+});
+
 Route::get('/quiz/start/{course}', [QuizController::class, 'start'])->name('quiz.start');
 
 Route::get('/students', [StudentController::class, 'index'])->name('students.index');
