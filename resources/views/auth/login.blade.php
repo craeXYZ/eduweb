@@ -27,14 +27,13 @@
             <div>{{ $error }}</div>
         @endforeach
     </div>
-@endif
-
+    @endif
 
     <form method="POST" action="{{ url('/login') }}" class="space-y-4">
       @csrf
       <div>
-        <label class="block text-sm text-blue-900">Email</label>
-        <input name="email" type="email" placeholder="Email" required class="w-full px-4 py-2 border border-blue-900 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <label class="block text-sm text-blue-900">Student ID</label>
+        <input name="student_id" type="text" placeholder="Enter your Student ID" required class="w-full px-4 py-2 border border-blue-900 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500">
       </div>
 
       <div>
@@ -55,4 +54,3 @@
   </div>
 </body>
 </html>
-

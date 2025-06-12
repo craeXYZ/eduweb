@@ -21,15 +21,22 @@ class GoAuthController extends Controller
     }
 
     public function login(Request $request)
+{
+    $credentials = $request->only('student_id', 'password');
+
+    if (GoAuthController::attempt($credentials)) {
+        $request->session()->regenerate();
+        return redirect()->intended('/dashboard');
+    }
+
+    return back()->withErrors([
+        'student_id' => 'The provided credentials do not match our records.',
+    ])->onlyInput('student_id');
+    }
+
+    public function username()
     {
-        $response = Http::post("{$this->apiUrl}/login", $request->only('email', 'password'));
-
-        if ($response->successful()) {
-            Session::put('go_api_token', $response['token']);
-            return redirect('/dashboard'); // or wherever
-        }
-
-        return back()->withErrors('Login failed')->withInput();
+        return 'student_id';
     }
 
     public function showRegister()

@@ -4,23 +4,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Http\Controllers;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\GoApiController;
 use App\Http\Controllers\GoAuthController;
-
-Route::post('/login', function (Request $request) {
-    $credentials = $request->only('email', 'password');
-
-    if (Auth::attempt($credentials)) {
-        $request->session()->regenerate();
-        return redirect()->intended('/dashboard'); // or wherever you want
-    }
-
-    return back()->withErrors([
-        'email' => 'The provided credentials do not match our records.',
-    ])->onlyInput('email');
-});
+use App\Http\Controllers\SubjectController;
 
 Route::get('/login', [GoAuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [GoAuthController::class, 'login']);
@@ -64,6 +51,12 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/students', [StudentController::class, 'index'])->name('students.index');
+Route::get('/test', function() {
+    return view('pages.test'); });
 
+Route::get('/students', [StudentController::class, 'index'])->name('students.index');
 Route::get('/students', [GoApiController::class, 'getStudents']);
+
+Route::get('/subject/{id}/topics', [SubjectController::class, 'showSubSubjects']);
+
+Route::get('/sub-subject/{id}', [SubjectController::class, 'showSubDetail']);
