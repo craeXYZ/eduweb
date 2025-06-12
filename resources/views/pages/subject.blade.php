@@ -19,18 +19,15 @@
 
   <!-- Subject Cards -->
   <div class="flex-1 px-4 space-y-4">
-    <div class="rounded-2xl p-6 text-white text-xl font-semibold shadow-lg" style="background: linear-gradient(to right, #667eea, #764ba2);">
+    <a href="/course" class="block rounded-2xl p-6 text-white text-xl font-semibold shadow-lg" style="background: linear-gradient(to right, #667eea, #764ba2);">
       Calculus
-    </div>
-    <div class="rounded-2xl p-6 text-white text-xl font-semibold shadow-lg" style="background: linear-gradient(to right, #ff6a00, #ee0979);">
+    </a>
+    <a href="/course" class="block rounded-2xl p-6 text-white text-xl font-semibold shadow-lg" style="background: linear-gradient(to right, #ff6a00, #ee0979);">
       Algebra
-    </div>
-    <div class="rounded-2xl p-6 text-white text-xl font-semibold shadow-lg" style="background: linear-gradient(to right, #ff9966, #ff5e62);">
-      Shapes
-    </div>
-    <div class="rounded-2xl p-6 text-white text-xl font-semibold shadow-lg" style="background: linear-gradient(to right, #f6d365, #fda085);">
+    </a>
+    <a href="/course" class="block rounded-2xl p-6 text-white text-xl font-semibold shadow-lg" style="background: linear-gradient(to right, #f6d365, #fda085);">
       Geometry
-    </div>
+    </a>
   </div>
 
   <!-- Bottom Navigation -->

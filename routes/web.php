@@ -51,8 +51,15 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/test', function() {
-    return view('pages.test'); });
+Route::get('/course', function () {
+    return view('subjects.course');
+});
+
+Route::get('/quiz', function () {
+    return view('quiz.intro');
+});
+
+Route::get('/quiz/start/{course}', [QuizController::class, 'start'])->name('quiz.start');
 
 Route::get('/students', [StudentController::class, 'index'])->name('students.index');
 Route::get('/students', [GoApiController::class, 'getStudents']);
